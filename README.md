@@ -1,125 +1,204 @@
-# VIRUS-INFORMATICOS
 
-```markdown
-# 🛡️ Investigación: Virus Informáticos y Ciberseguridad
+# 🦠 Virus Informáticos
 
-Este repositorio contiene una guía explicativa y visual sobre los tipos de virus, categorías de malware, métodos de prueba inofensivos y estrategias de protección para sistemas informáticos.
+## 📚 Introducción
 
----
+Los virus informáticos y otros tipos de malware son programas diseñados para afectar el funcionamiento de dispositivos, robar información, dañar archivos o realizar acciones no autorizadas.
 
-## 1. 🦠 Tipos de Virus Informáticos
+En esta práctica se investigan los diferentes tipos de virus, categorías de malware, métodos de protección y algunos ejemplos de amenazas informáticas conocidas.
 
-Los virus se clasifican principalmente según el **objetivo del sistema** que infectan y su **mecanismo de propagación**:
-
-
-```
-
-┌──────────────────────────────────────────────────────────┐
-│               TIPOS DE VIRUS INFORMÁTICOS               │
-├─────────────────┬────────────────────────────────────────┤
-│ 📄 Archivos     │ Infecta ejecutables (.exe, .com)       │
-│ 🔌 Arranque     │ Ataca el sector MBR del disco duro     │
-│ 📝 Macro        │ Se ejecuta en docs (Word, Excel)       │
-│ 🧬 Multipartito │ Combina infección de MBR y archivos    │
-│ 🧠 Residente    │ Se aloja directamente en la memoria RAM│
-└─────────────────┴────────────────────────────────────────┘
-
-```
-
-* **📄 Infectores de archivos:** Se adhieren a programas ejecutables (`.exe`, `.dll`, `.com`). Al ejecutar el programa, el virus se activa.
-* **🔌 Sector de Arranque (Boot Sector):** Infecta el Registro de Arranque Maestro (MBR) del disco duro, ejecutándose antes de que cargue el sistema operativo.
-* **📝 Macro Virus:** Escrito en lenguajes de macros integrados en documentos de ofimática (Word, Excel). Se activa al abrir el archivo.
-* **🧬 Virus Multipartitos:** Posee capacidad dual para infectar tanto el sector de arranque como los archivos ejecutables simultáneamente.
-* **🧠 Residentes en RAM:** Permanece oculto en la memoria principal del equipo para interceptar y controlar las operaciones del sistema operativo.
+> ⚠️ **Nota:** La simulación incluida en esta práctica es únicamente educativa y no modifica, elimina, cifra ni roba archivos.
 
 ---
 
-## 2. 🎭 Categorías de Virus
+# 1. 🦠 Tipos de Virus
 
-Clasificación según su **comportamiento**, capacidades de **evasión** y arquitectura de ataque:
-
-
-```
-
-```
-              ┌──────────────────────┐
-              │ CATEGORÍAS DE VIRUS  │
-              └──────────┬───────────┘
-     ┌───────────────────┼───────────────────┐
-     ▼                   ▼                   ▼
-
-```
-
-🧬 Polimórficos     🥷 Sigilosos        🐴 Troyanos
-Cambian su código   Ocultan cambios     Abren puertas
-en cada infección   de tamaño/fecha     traseras (Backdoors)
-
-```
-
-* **🧬 Polimórficos / Metamórficos:** Cambian su estructura de código o encriptación en cada nueva infección para burlar la detección por firmas de los antivirus.
-* **🥷 Sigilosos (Stealth):** Interceptan las solicitudes del sistema operativo para falsificar información y ocultar modificaciones en el tamaño o fecha de los archivos.
-* **🐴 Troyanos:** Se presentan como programas legítimos u útiles, pero al ejecutarse abren accesos no autorizados (*backdoors*) para atacantes remotos.
-* **🌐 Secuestradores de Navegador (Hijackers):** Modifican la configuración del navegador web (página de inicio, buscador predeterminado) para redirigir tráfico a sitios maliciosos.
+| Tipo de virus | Descripción |
+|---|---|
+| **Virus de archivo** | Se adjunta a archivos ejecutables y puede activarse cuando estos son ejecutados. |
+| **Virus de sector de arranque** | Infecta el sector de arranque de un disco y puede afectar el inicio del sistema. |
+| **Virus residente** | Permanece en la memoria del equipo y puede infectar otros archivos. |
+| **Virus de macro** | Utiliza macros de documentos como Word o Excel para propagarse. |
+| **Virus polimórfico** | Modifica parte de su código para intentar evitar la detección. |
+| **Virus multipartito** | Puede infectar diferentes partes del sistema, como archivos y sectores de arranque. |
+| **Virus de sobreescritura** | Sobrescribe el contenido de archivos y puede provocar pérdida de información. |
+| **Virus de script** | Utiliza lenguajes de scripting para realizar acciones maliciosas. |
 
 ---
 
-## 3. 🧪 Creación de Virus de Daño Bajo (Conceptos de Prueba)
+# 2. 🧩 Categorías de Malware
 
-Para realizar pruebas académicas y de auditoría de seguridad sin poner en riesgo la estabilidad del equipo ni los datos, se utilizan métodos inocuos:
+Aunque comúnmente se utiliza la palabra "virus" para cualquier amenaza informática, existen diferentes tipos de malware.
 
-### ⚙️ A. Scripts Inofensivos de Prueba
-Automatizaciones simples en scripts BATCH (`.bat`) o VBScript (`.vbs`) que solo muestran mensajes o crean archivos temporales para probar la ejecución sin causar daños.
-
-### 🎯 B. Cadena de Prueba Estándar EICAR
-Es un estándar internacional aceptado por la industria de ciberseguridad. Se trata de un archivo de texto inofensivo que cualquier antivirus debe detectar e interceptar inmediatamente como si fuera un virus real:
-
-```text
-X5O!P%@AP[4\PZX54(P^)7CC)7}}$EICAR-STANDARD-ANTIVIRUS-TEST-FILE!$H+H*
-
-```
-
----
-
-## 4. 🛡️ Tipos de Protección (Defensa en Profundidad)
-
-Estrategia multinivel para proteger la infraestructura y los datos frente a infecciones:
-
-```
- ┌─────────────────────────────────────────────────────────────┐
- │                CAPAS DE PROTECCIÓN INFORMÁTICA              │
- ├─────────────────┬───────────────────────────────────────────┤
- │ 🔍 Antivirus    │ Análisis en tiempo real, firmas y heurística│
- │ 🧱 Firewall     │ Control de puertos y filtrado de red      │
- │ 🔄 Parches      │ Actualizaciones continuas del sistema     │
- │ 💾 Backups      │ Respaldos periódicos fuera de línea       │
- │ 🧑‍💻 Educación   │ Prevención contra Phishing e Ing. Social  │
- └─────────────────┴───────────────────────────────────────────┘
-
-```
-
-1. **🔍 Protección Activa (Antivirus/Anti-Malware):** Monitoreo constante mediante firmas conocidas y análisis heurístico para detectar comportamientos sospechosos.
-2. **🧱 Cortafuegos (Firewall):** Bloqueo y filtrado del tráfico de red saliente y entrante no autorizado.
-3. **🔄 Gestión de Parches:** Mantener el sistema operativo y las aplicaciones actualizadas para cerrar vulnerabilidades (*exploits*).
-4. **💾 Copias de Seguridad (Backups):** Respaldos periódicos de la información crítica guardados en medios desconectados (*offline*) para mitigar ataques de secuestro de datos.
-5. **🧑‍💻 Educación del Usuario:** Capacitación en hábitos de navegación segura para evitar engaños por ingeniería social o correos fraudulentos (*phishing*).
+| Categoría | Descripción |
+|---|---|
+| **Virus** | Se replica infectando otros archivos. |
+| **Gusano (Worm)** | Puede propagarse automáticamente entre computadoras y redes. |
+| **Troyano** | Se presenta como un programa legítimo, pero realiza acciones maliciosas. |
+| **Ransomware** | Cifra archivos y exige un pago para recuperarlos. |
+| **Spyware** | Recopila información del usuario sin autorización. |
+| **Adware** | Muestra publicidad no deseada. |
+| **Keylogger** | Registra las pulsaciones realizadas en el teclado. |
+| **Rootkit** | Intenta ocultar su presencia y mantener acceso al sistema. |
+| **Botnet** | Convierte dispositivos infectados en equipos controlados remotamente. |
+| **RAT** | Permite controlar determinadas funciones de un equipo de manera remota. |
 
 ---
 
-## 5. ⚠️ 10 Tipos de Malware y sus Daños
+# 3. 🧪 Creación de una Simulación de Virus de Daño Bajo
 
-| Icono | Malware | Descripción / Daño Principal |
-| --- | --- | --- |
-| 🔒 | **Ransomware** | Cifra los archivos del sistema y exige un rescate económico para devolver el acceso. |
-| 🕵️ | **Spyware** | Recopila en secreto hábitos de navegación, información personal y credenciales. |
-| 🪱 | **Gusano (Worm)** | Se replica autónomamente por la red consumiendo ancho de banda y recursos. |
-| 📢 | **Adware** | Despliega publicidad masiva no deseada y ralentiza la navegación. |
-| ⌨️ | **Keylogger** | Registra todas las pulsaciones de teclado para robar contraseñas y datos bancarios. |
-| 👤 | **Rootkit** | Proporciona acceso administrativo oculto a nivel de kernel de forma no detectada. |
-| 🤖 | **Botnet** | Recluta el equipo en una red "zombi" para lanzar ataques masivos de denegación de servicio (DDoS). |
-| 🚨 | **Scareware** | Muestra falsas alertas de infección para engañar al usuario e inducirlo a comprar software estafa. |
-| 🎯 | **Exploit Kit** | Aprovecha fallos de seguridad no corregidos en el navegador o programas para infectar el equipo. |
-| 🏦 | **Troyano Bancario** | Intercepta sesiones de banca en línea y códigos SMS/MFA para realizar fraudes financieros. |
+Para esta práctica se realizó una **simulación educativa y segura**.
 
-```
+El programa únicamente muestra una alerta simulada y no realiza ninguna acción dañina.
 
-```
+### Código de la simulación
+
+```bat
+@echo off
+title Simulacion de Virus
+echo =====================================
+echo       SIMULACION EDUCATIVA
+echo =====================================
+echo.
+echo Este programa NO es un virus real.
+echo No modifica, elimina ni cifra archivos.
+echo.
+echo Se ha detectado una amenaza SIMULADA.
+echo.
+pause
+¿Qué demuestra?
+
+La simulación permite demostrar:
+
+Ejecución de un archivo mediante CMD.
+Uso de comandos básicos de Windows.
+Presentación de mensajes al usuario.
+Funcionamiento de un archivo .bat.
+🔐 Seguridad
+
+Esta simulación NO:
+
+Elimina archivos.
+Modifica archivos.
+Cifra información.
+Roba contraseñas.
+Se propaga por la red.
+Desactiva antivirus.
+Oculta procesos.
+4. 🛡️ Tipos de Protección
+
+Existen diferentes métodos para proteger nuestros dispositivos.
+
+Protección	Función
+Antivirus	Detecta, bloquea y elimina diferentes tipos de malware.
+Actualizaciones	Corrigen errores y vulnerabilidades de seguridad.
+Firewall	Controla las conexiones de red entrantes y salientes.
+Copias de seguridad	Permiten recuperar información perdida o dañada.
+Contraseñas seguras	Ayudan a evitar accesos no autorizados.
+Navegación segura	Reduce el riesgo de descargar archivos maliciosos.
+Correo electrónico seguro	Evita abrir enlaces o archivos adjuntos sospechosos.
+Control de permisos	Reduce las acciones que pueden realizar programas y usuarios.
+5. 💻 Diez Virus y Malware Conocidos
+#	Virus/Malware	Año	Daño principal
+1	Brain	1986	Infectaba el sector de arranque de disquetes.
+2	Michelangelo	1991	Podía sobrescribir sectores del disco y provocar pérdida de información.
+3	Melissa	1999	Se propagaba mediante documentos de Word y correo electrónico.
+4	ILOVEYOU	2000	Se propagó masivamente por correo electrónico y podía afectar archivos.
+5	Code Red	2001	Explotaba vulnerabilidades de servidores Microsoft IIS y se propagaba por Internet.
+6	Mydoom	2004	Se propagaba por correo electrónico y generaba gran cantidad de tráfico de red.
+7	Conficker	2008	Infectó millones de computadoras aprovechando vulnerabilidades de Windows.
+8	Stuxnet	2010	Atacó sistemas industriales y equipos utilizados para procesos de control.
+9	WannaCry	2017	Cifraba archivos y exigía un pago para recuperarlos.
+10	NotPetya	2017	Provocó daños e interrupciones importantes en empresas y organizaciones.
+6. 🔎 ¿Cómo analizar si un dispositivo tiene virus usando CMD?
+
+Windows cuenta con diferentes herramientas que pueden ayudar a revisar el estado del equipo.
+
+6.1 Comprobar archivos del sistema
+sfc /scannow
+
+Este comando comprueba la integridad de determinados archivos protegidos de Windows y puede reparar archivos dañados.
+
+6.2 Revisar procesos activos
+tasklist
+
+Muestra los procesos que actualmente están ejecutándose en el equipo.
+
+6.3 Revisar conexiones de red
+netstat -ano
+
+Permite observar conexiones de red activas y los identificadores de los procesos relacionados.
+
+6.4 Consultar Microsoft Defender
+
+Desde CMD podemos consultar el estado de Microsoft Defender mediante PowerShell:
+
+powershell Get-MpComputerStatus
+6.5 Realizar un análisis rápido
+powershell Start-MpScan -ScanType QuickScan
+
+Este comando inicia un análisis rápido utilizando Microsoft Defender.
+
+6.6 Realizar un análisis completo
+powershell Start-MpScan -ScanType FullScan
+
+Este comando inicia un análisis completo del equipo.
+
+💡 Importante: Estos comandos sirven para diagnóstico y protección. La ausencia de resultados sospechosos no garantiza por sí sola que un equipo esté completamente libre de malware.
+
+7. 📋 Recomendaciones de Seguridad
+
+Para mantener un dispositivo protegido se recomienda:
+
+Mantener Windows actualizado.
+Mantener activo un antivirus confiable.
+No descargar programas desde sitios desconocidos.
+No abrir archivos adjuntos sospechosos.
+No hacer clic en enlaces desconocidos.
+Utilizar contraseñas seguras.
+Activar la autenticación de dos factores cuando esté disponible.
+Realizar copias de seguridad periódicas.
+Evitar utilizar programas pirateados o de fuentes desconocidas.
+Revisar periódicamente el dispositivo.
+8. 📝 Conclusión
+
+Los virus informáticos y otros tipos de malware representan una amenaza para la seguridad de los dispositivos y la información de los usuarios.
+
+Conocer sus diferentes categorías permite identificar mejor los riesgos y tomar medidas de protección. Herramientas como Microsoft Defender, sfc, tasklist y netstat pueden ayudar a realizar comprobaciones básicas del sistema.
+
+La mejor forma de prevenir una infección es mantener el sistema actualizado, utilizar herramientas de seguridad, realizar copias de seguridad y tener cuidado con los archivos, programas y enlaces que descargamos o abrimos.
+
+👨‍💻 Información de la Práctica
+
+Asignatura: Servicios Informáticos
+Tema: Virus Informáticos
+Actividad: Investigación y análisis de virus
+Repositorio: Práctica de Virus Informáticos
+
+📁 Contenido del Repositorio
+Practica-Virus-Informaticos/
+│
+├── README.md
+├── tipos-de-virus.md
+├── categorias-malware.md
+├── proteccion.md
+├── 10-virus.md
+└── simulacion-segura.bat
+⚠️ Aviso de Uso Responsable
+
+Este repositorio fue creado con fines educativos para aprender sobre seguridad informática.
+
+Los ejemplos incluidos no están diseñados para causar daños, robar información, evadir sistemas de seguridad o afectar dispositivos de terceros.
+
+La seguridad informática debe practicarse de manera responsable y únicamente en equipos y entornos autorizados.
+
+
+### 📌 Nombre recomendado del repositorio
+
+**`Practica-Virus-Informaticos`**
+
+Y el archivo principal debe llamarse exactamente:
+
+**`README.md`**
+
+Con esto ya tienes la parte principal que pide el profesor: **investigación + tabla de virus + simulación
