@@ -1,0 +1,14 @@
+# 📊 Resumen de los 10 casos
+
+| # | Malware | Año | Tipo | Daño principal |
+|---:|---|---:|---|---|
+| 1 | *Brain* | 1986 | Virus de sector de arranque | Problemas de arranque y propagación mediante disquetes. |
+| 2 | *Michelangelo* | 1991 | Virus de sector de arranque | Posible pérdida de información. |
+| 3 | *Melissa* | 1999 | Gusano/macro | Propagación y sobrecarga del correo electrónico. |
+| 4 | *ILOVEYOU* | 2000 | Gusano | Daño y modificación de archivos. |
+| 5 | *Code Red* | 2001 | Gusano | Infección de servidores y tráfico de red. |
+| 6 | *Mydoom* | 2004 | Gusano | Propagación masiva y ataques de red. |
+| 7 | *Conficker* | 2008 | Gusano | Infección de numerosos equipos Windows. |
+| 8 | *Stuxnet* | 2010 | Malware | Alteración de sistemas industriales. |
+| 9 | *WannaCry* | 2017 | Ransomware | Cifrado de archivos y bloqueo de sistemas. |
+| 10 | *NotPetya* | 2017 | Malware destructivo | Pérdida de información e interrupciones. |
